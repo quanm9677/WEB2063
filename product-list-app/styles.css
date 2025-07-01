@@ -32,3 +32,17 @@ header {
   opacity: 1;
   transform: translateY(0);
 }
+#filter-form {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+#filter-form input {
+  padding: 5px;
+  width: 100px;
+}
+#filter-form button {
+  padding: 5px 10px;
+}

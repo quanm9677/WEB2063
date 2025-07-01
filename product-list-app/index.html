@@ -11,8 +11,19 @@
       <h1>Danh Sách Sản Phẩm</h1>
     </header>
     <main>
-      <section id="product-list" class="product-container"></section>
-    </main>
+  <section>
+    <form id="filter-form">
+      <label for="minPrice">Giá từ: </label>
+      <input type="number" id="minPrice" placeholder="VD: 100" />
+      <label for="maxPrice">đến: </label>
+      <input type="number" id="maxPrice" placeholder="VD: 500" />
+      <button type="submit">Lọc</button>
+    </form>
+  </section>
+
+  <section id="product-list" class="product-container"></section>
+</main>
+
     <script src="script.js"></script>
   </body>
 </html>

@@ -1,5 +1,9 @@
-// Lấy phần tử container
+// Lấy phần tử container và form
 const productList = document.querySelector("#product-list");
+const filterForm = document.getElementById("filter-form");
+
+// Biến lưu trữ danh sách sản phẩm gốc
+let allProducts = [];
 
 // Hàm lấy dữ liệu sản phẩm từ JSON Server
 async function fetchProducts() {
@@ -16,7 +20,6 @@ async function fetchProducts() {
 
 // Hàm hiển thị danh sách sản phẩm
 function displayProducts(products) {
-  // Sử dụng map để tạo HTML cho mỗi sản phẩm
   const productHTML = products
     .map(
       (product) => `
@@ -31,7 +34,7 @@ function displayProducts(products) {
 
   productList.innerHTML = productHTML;
 
-  // Hiển thị hiệu ứng cuộn (Reveal on Scroll)
+  // Hiệu ứng reveal on scroll
   const cards = document.querySelectorAll(".product-card");
   const observer = new IntersectionObserver(
     (entries) => {
@@ -51,14 +54,24 @@ function displayProducts(products) {
 // Hàm khởi tạo
 async function init() {
   const products = await fetchProducts();
+  allProducts = [...products]; // Lưu toàn bộ sản phẩm
+  displayProducts(allProducts); // Hiển thị toàn bộ
+}
 
-  // Sử dụng Spread Operator để sao chép và lọc sản phẩm (CLO1, CLO3)
-  const filteredProducts = [...products].filter(
-    (product) => product.price > 50
+// Bắt sự kiện lọc giá
+filterForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const minPrice = parseFloat(document.getElementById("minPrice").value) || 0;
+  const maxPrice =
+    parseFloat(document.getElementById("maxPrice").value) || Infinity;
+
+  const filtered = allProducts.filter(
+    (product) => product.price >= minPrice && product.price <= maxPrice
   );
 
-  displayProducts(filteredProducts);
-}
+  displayProducts(filtered);
+});
 
 // Chạy ứng dụng
 init();
