@@ -30,6 +30,7 @@ console.log(1 && 'Continue');
 console.log('--- Nullish Coalescing ---');
 const age = 0;
 console.log(age ?? 18);
+console.log(age || 18);
 
 // ✅ Logical Assignment Operators
 console.log('--- Logical Assignment Operators ---');

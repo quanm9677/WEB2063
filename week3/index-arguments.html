@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Event Handler with Arguments</title>
+</head>
+<body>
+  <button class="btn-greet">Chào 1</button>
+  <button class="btn-greet2">Chào 2 (dùng bind)</button>
+
+  <script>
+    const greet = function (name, e) {
+      alert(`Hello, ${name}`);
+      console.log('Button clicked:', e.target);
+    };
+
+    // Cách 1: function ẩn danh
+    document.querySelector('.btn-greet').addEventListener('click', function (e) {
+      greet('Minh Quân', e);
+    });
+
+    // Cách 2: dùng bind
+    document.querySelector('.btn-greet2').addEventListener('click', greet.bind(null, 'Quân Nguyễn'));
+  </script>
+</body>
+</html>

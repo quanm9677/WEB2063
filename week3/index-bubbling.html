@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bubbling và Capturing</title>
+  <style>
+    #parent { padding:30px; background:#eee; }
+    #child { margin-top:10px; }
+  </style>
+</head>
+<body>
+  <div id="parent">
+    Parent
+    <button id="child">Child</button>
+  </div>
+  <script>
+    // Capturing
+    document.getElementById('parent').addEventListener('click', function() {
+      alert('Parent (capturing)');
+    }, true);
+
+    // Bubbling
+    document.getElementById('child').addEventListener('click', function() {
+      alert('Child (bubbling)');
+    }, false);
+  </script>
+</body>
+</html>

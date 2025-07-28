@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Page Navigation</title>
+  <style>
+    #section2 {
+      margin-top: 1000px;
+      padding: 50px;
+      background: #f4f4f4;
+      border: 1px solid #aaa;
+    }
+  </style>
+</head>
+<body>
+  <button class="btn-scroll">Scroll to Section 2</button>
+
+  <section id="section2">
+    <h2>Section 2</h2>
+    <p>This is the target section.</p>
+  </section>
+
+  <script>
+    const scrollBtn = document.querySelector('.btn-scroll');
+    const section2 = document.querySelector('#section2');
+
+    scrollBtn.addEventListener('click', function () {
+      section2.scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
