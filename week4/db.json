@@ -1,0 +1,44 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "title": "iPhone 15 Pro",
+      "name": "Apple iPhone 15 Pro 128GB",
+      "price": 999,
+      "image": "https://example.com/iphone15.jpg"
+    },
+    {
+      "id": "2",
+      "title": "Samsung Galaxy S24",
+      "name": "Samsung Galaxy S24 Ultra 256GB",
+      "price": 1199,
+      "image": "https://example.com/samsung-s24.jpg"
+    },
+    {
+      "id": "3",
+      "title": "MacBook Pro",
+      "name": "Apple MacBook Pro 14-inch M3",
+      "price": 1999,
+      "image": "https://example.com/macbook-pro.jpg"
+    },
+    {
+      "id": "27b8",
+      "title": "sakjdhksj",
+      "name": "nbdkjasdn",
+      "price": 100,
+      "image": "https://cdn-media.sforum.vn/storage/app/media/anh-dep-68.jpg"
+    }
+  ],
+  "users": [
+    {
+      "email": "thaivm2@fe.edu.vn",
+      "password": "$2a$10$nRopbCmzAlIiuuv5kubBYeG23Zsl322odODYLM/xpnH8bzJZ4sL.S",
+      "id": "1"
+    },
+    {
+      "email": "thaivm3@fe.edu.vn",
+      "password": "$2a$10$I3mpMC2SJAXEQNm71FpaSO01Y6kI4Mlt4QRo7ujHUu/GFTkxqcSxK",
+      "id": "2"
+    }
+  ]
+}
