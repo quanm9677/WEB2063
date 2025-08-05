@@ -45,5 +45,5 @@ async function remove(id) {
 }
 
 function edit(id) {
-    location.href = `/add.html?id=${id}`;
+    location.href = `./add.html?id=${id}`;
 }

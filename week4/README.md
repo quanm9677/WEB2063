@@ -1,59 +1,74 @@
-# CRUD Product Management System
+# Product Management System
 
-## Mô tả dự án
-Hệ thống quản lý sản phẩm với đầy đủ chức năng CRUD (Create, Read, Update, Delete) được xây dựng bằng JavaScript thuần và Bootstrap.
+Hệ thống quản lý sản phẩm với các chức năng CRUD (Create, Read, Update, Delete).
 
-## Tính năng
-- ✅ **Thêm sản phẩm mới** với validation đầy đủ
-- ✅ **Hiển thị danh sách sản phẩm** với giao diện đẹp
-- ✅ **Chỉnh sửa sản phẩm** với form pre-filled
-- ✅ **Xóa sản phẩm** với xác nhận
-- ✅ **Validation đầy đủ** bằng JavaScript thuần
-- ✅ **Preview ảnh** real-time
-- ✅ **Responsive design** với Bootstrap 5
+## Các chức năng chính
 
-## Cấu trúc dữ liệu
-Mỗi sản phẩm có các trường:
-- `id`: ID duy nhất
-- `title`: Tiêu đề sản phẩm (2-100 ký tự)
-- `name`: Tên sản phẩm (2-200 ký tự)
-- `price`: Giá sản phẩm (số dương)
-- `image`: URL ảnh sản phẩm
+### 1. Xem danh sách sản phẩm (index.html)
+- Hiển thị tất cả sản phẩm trong bảng
+- Mỗi sản phẩm có các thông tin: ID, Title, Name, Price, Image
+- Có 2 nút action: Edit và Delete
 
-## Cài đặt và chạy
+### 2. Thêm sản phẩm mới (add.html)
+- Form nhập thông tin sản phẩm mới
+- Validation đầy đủ cho tất cả các trường
+- Preview hình ảnh real-time
+- Lưu vào database
 
-### 1. Cài đặt dependencies
-```bash
-npm install
-```
+### 3. Chỉnh sửa sản phẩm (add.html)
+- **Cách sử dụng**: Click nút "Edit" trên danh sách sản phẩm
+- **URL**: `add.html?id=<product_id>`
+- Tự động load thông tin sản phẩm vào form
+- Cập nhật UI để hiển thị "Edit Product" thay vì "Add Product"
+- Validation và preview hình ảnh như chức năng thêm mới
+- Lưu thay đổi vào database
 
-### 2. Khởi động json-server
-```bash
-npm run server
-```
+### 4. Xóa sản phẩm
+- Click nút "Delete" trên danh sách
+- Xác nhận trước khi xóa
+- Tự động refresh danh sách sau khi xóa
 
-### 3. Mở ứng dụng
-Mở file `index.html` trong trình duyệt hoặc sử dụng Live Server.
+## Cách sử dụng chức năng Edit
 
-## API Endpoints
-- `GET /products` - Lấy danh sách sản phẩm
-- `GET /products/:id` - Lấy chi tiết sản phẩm
-- `POST /products` - Thêm sản phẩm mới
-- `PUT /products/:id` - Cập nhật sản phẩm
-- `DELETE /products/:id` - Xóa sản phẩm
+1. Mở trang danh sách sản phẩm (`index.html`)
+2. Tìm sản phẩm cần chỉnh sửa
+3. Click nút **"Edit"** màu xanh
+4. Trang sẽ chuyển đến form chỉnh sửa với thông tin sản phẩm đã được điền sẵn
+5. Thay đổi thông tin cần thiết
+6. Click **"Update Product"** để lưu thay đổi
+7. Hệ thống sẽ chuyển về trang danh sách với thông báo thành công
 
-## Validation Rules
-- **Title**: Bắt buộc, 2-100 ký tự
-- **Name**: Bắt buộc, 2-200 ký tự  
-- **Price**: Bắt buộc, số dương
-- **Image**: Bắt buộc, URL hợp lệ
+## Validation
+
+Tất cả các trường đều có validation:
+- **Title**: 2-100 ký tự
+- **Name**: 2-200 ký tự  
+- **Price**: Số dương
+- **Image URL**: URL hợp lệ
 
 ## Công nghệ sử dụng
-- HTML5
-- CSS3 (Bootstrap 5)
-- JavaScript (ES6+)
-- Axios (HTTP client)
-- JSON Server (Mock API)
 
-## Tác giả
-WEB2063 - JavaScript Nâng Cao 
+- HTML5, CSS3, JavaScript (ES6+)
+- Bootstrap 5 cho UI
+- Axios cho HTTP requests
+- JSON Server làm backend
+
+## Khởi chạy
+
+1. Cài đặt dependencies: `npm install`
+2. Khởi động JSON Server: `json-server --watch db.json`
+3. Mở `index.html` trong trình duyệt
+
+## Cấu trúc file
+
+```
+week4/
+├── index.html      # Trang danh sách sản phẩm
+├── index.js        # Logic cho trang danh sách
+├── add.html        # Form thêm/chỉnh sửa sản phẩm
+├── add.js          # Logic cho form thêm/chỉnh sửa
+├── db.json         # Database JSON
+├── login.html      # Trang đăng nhập
+├── register.html   # Trang đăng ký
+└── README.md       # Hướng dẫn sử dụng
+``` 

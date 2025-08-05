@@ -1,4 +1,5 @@
-const id = location.search.split("=")[1];
+const urlParams = new URLSearchParams(location.search);
+const id = urlParams.get('id');
 
 // Validation functions
 function validateTitle(title) {
@@ -80,6 +81,13 @@ document.getElementById('image').addEventListener('input', function() {
 
 async function getDetail() {
     if (!id) return; // Nếu không có id => đang dùng chức năng thêm mới
+    
+    // Validate ID format
+    if (id && !/^[a-zA-Z0-9]+$/.test(id)) {
+        alert("ID không hợp lệ!");
+        location.href = './index.html';
+        return;
+    }
 
     try {
         const res = await axios.get(`http://localhost:3000/products/${id}`); // Lấy dữ liệu đổ ra form
@@ -94,9 +102,16 @@ async function getDetail() {
         if (oldProduct.image) {
             preview.src = oldProduct.image;
         }
+        
+        // Update UI for edit mode
+        document.getElementById('pageTitle').textContent = 'Edit Product';
+        document.getElementById('submitBtn').textContent = 'Update Product';
+        
     } catch (error) {
         console.error(error);
         alert("Không thể tải thông tin sản phẩm!");
+        // Redirect back to product list if product not found
+        location.href = './index.html';
     }
 }
 
@@ -166,7 +181,7 @@ async function handleSubmit(event) {
             alert('Chỉnh sửa thành công!');
         }
         
-        location.href = "/"; // Điều hướng người dùng về trang danh sách
+        location.href = "./index.html"; // Điều hướng người dùng về trang danh sách
     } catch (error) {
         console.error(error);
         alert("Có lỗi xảy ra khi lưu sản phẩm. Vui lòng thử lại!");
