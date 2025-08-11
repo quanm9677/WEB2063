@@ -1,0 +1,17 @@
+{
+  "name": "clothing-management-app",
+  "version": "1.0.0",
+  "description": "Clothing Management Application",
+  "main": "index.js",
+  "scripts": {
+    "start": "json-server --watch db.json --port 3000",
+    "dev": "json-server --watch db.json --port 3000 --middlewares ./node_modules/json-server-auth"
+  },
+  "dependencies": {
+    "json-server": "^0.17.4",
+    "json-server-auth": "^2.1.0"
+  },
+  "keywords": ["clothing", "management", "crud"],
+  "author": "",
+  "license": "MIT"
+} 

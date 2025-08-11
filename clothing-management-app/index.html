@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Quần áo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-tshirt me-2"></i>
+                Quản lý Quần áo
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" id="nav-home">
+                            <i class="fas fa-home me-1"></i>Trang chủ
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="nav-products">
+                            <i class="fas fa-list me-1"></i>Sản phẩm
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="nav-add">
+                            <i class="fas fa-plus me-1"></i>Thêm mới
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item" id="auth-section">
+                        <a class="nav-link" href="#" id="nav-login">
+                            <i class="fas fa-sign-in-alt me-1"></i>Đăng nhập
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <!-- Home Page -->
+        <div id="home-page" class="page-content">
+            <div class="row">
+                <div class="col-12">
+                    <div class="jumbotron bg-light p-5 rounded">
+                        <h1 class="display-4">Chào mừng đến với Hệ thống Quản lý Quần áo</h1>
+                        <p class="lead">Quản lý sản phẩm quần áo một cách dễ dàng và hiệu quả</p>
+                        <hr class="my-4">
+                        <p>Hệ thống cung cấp các chức năng: Xem danh sách, Thêm mới, Cập nhật và Xóa sản phẩm</p>
+                        <a class="btn btn-primary btn-lg" href="#" id="start-btn">
+                            <i class="fas fa-play me-2"></i>Bắt đầu
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products List Page -->
+        <div id="products-page" class="page-content" style="display: none;">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2><i class="fas fa-list me-2"></i>Danh sách Sản phẩm</h2>
+                <button class="btn btn-success" id="add-product-btn">
+                    <i class="fas fa-plus me-2"></i>Thêm sản phẩm mới
+                </button>
+            </div>
+            <div class="row" id="products-container">
+                <!-- Products will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Add/Edit Product Page -->
+        <div id="product-form-page" class="page-content" style="display: none;">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 id="form-title">
+                                <i class="fas fa-plus me-2"></i>Thêm sản phẩm mới
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="product-form">
+                                <div class="mb-3">
+                                    <label for="title" class="form-label">Tên sản phẩm *</label>
+                                    <input type="text" class="form-control" id="title" name="title" required>
+                                    <div class="invalid-feedback" id="title-error"></div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="quantity" class="form-label">Số lượng *</label>
+                                    <input type="number" class="form-control" id="quantity" name="quantity" min="0" required>
+                                    <div class="invalid-feedback" id="quantity-error"></div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="imageUrl" class="form-label">URL hình ảnh *</label>
+                                    <input type="url" class="form-control" id="imageUrl" name="imageUrl" required>
+                                    <div class="invalid-feedback" id="imageUrl-error"></div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="category" class="form-label">Danh mục *</label>
+                                    <select class="form-select" id="category" name="category" required>
+                                        <option value="">Chọn danh mục</option>
+                                        <option value="Áo">Áo</option>
+                                        <option value="Quần">Quần</option>
+                                        <option value="Váy">Váy</option>
+                                        <option value="Phụ kiện">Phụ kiện</option>
+                                    </select>
+                                    <div class="invalid-feedback" id="category-error"></div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <button type="button" class="btn btn-secondary" id="cancel-btn">
+                                        <i class="fas fa-times me-2"></i>Hủy
+                                    </button>
+                                    <button type="submit" class="btn btn-primary" id="submit-btn">
+                                        <i class="fas fa-save me-2"></i>Lưu
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Login Page -->
+        <div id="login-page" class="page-content" style="display: none;">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-sign-in-alt me-2"></i>Đăng nhập</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="login-form">
+                                <div class="mb-3">
+                                    <label for="login-email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="login-email" name="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="login-password" class="form-label">Mật khẩu</label>
+                                    <input type="password" class="form-control" id="login-password" name="password" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100 mb-3">
+                                    <i class="fas fa-sign-in-alt me-2"></i>Đăng nhập
+                                </button>
+                                <div class="text-center">
+                                    <p class="mb-0">Chưa có tài khoản? 
+                                        <a href="#" id="switch-to-register" class="text-decoration-none">Đăng ký ngay</a>
+                                    </p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Register Page -->
+        <div id="register-page" class="page-content" style="display: none;">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-user-plus me-2"></i>Đăng ký</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="register-form">
+                                <div class="mb-3">
+                                    <label for="register-name" class="form-label">Họ và tên *</label>
+                                    <input type="text" class="form-control" id="register-name" name="name" required>
+                                    <div class="invalid-feedback" id="register-name-error"></div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="register-email" class="form-label">Email *</label>
+                                    <input type="email" class="form-control" id="register-email" name="email" required>
+                                    <div class="invalid-feedback" id="register-email-error"></div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="register-password" class="form-label">Mật khẩu *</label>
+                                    <input type="password" class="form-control" id="register-password" name="password" required>
+                                    <div class="invalid-feedback" id="register-password-error"></div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="register-confirm-password" class="form-label">Xác nhận mật khẩu *</label>
+                                    <input type="password" class="form-control" id="register-confirm-password" name="confirmPassword" required>
+                                    <div class="invalid-feedback" id="register-confirm-password-error"></div>
+                                </div>
+                                <button type="submit" class="btn btn-success w-100 mb-3">
+                                    <i class="fas fa-user-plus me-2"></i>Đăng ký
+                                </button>
+                                <div class="text-center">
+                                    <p class="mb-0">Đã có tài khoản? 
+                                        <a href="#" id="switch-to-login" class="text-decoration-none">Đăng nhập</a>
+                                    </p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container for Notifications -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="notification-toast" class="toast" role="alert">
+            <div class="toast-header">
+                <strong class="me-auto" id="toast-title">Thông báo</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body" id="toast-message">
+                <!-- Toast message will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Xác nhận xóa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Bạn có chắc chắn muốn xóa sản phẩm này không?</p>
+                    <p class="text-muted" id="delete-product-name"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-danger" id="confirm-delete">Xóa</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core utilities -->
+    <script src="js/api.js"></script>
+    <script src="js/validation.js"></script>
+    <script src="js/notifications.js"></script>
+    <script src="js/auth.js"></script>
+
+    <!-- CRUD operations -->
+    <script src="js/crud/create.js"></script>
+    <script src="js/crud/read.js"></script>
+    <script src="js/crud/update.js"></script>
+    <script src="js/crud/delete.js"></script>
+
+    <!-- App initializer -->
+    <script src="js/app.js"></script>
+</body>
+</html> 

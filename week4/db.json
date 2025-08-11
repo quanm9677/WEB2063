@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "title": "Samsung Galaxy S241",
+      "title": "Samsung Galaxy S24",
       "name": "Samsung Galaxy S24 Ultra 256GB",
       "price": 1199,
       "image": "https://example.com/samsung-s24.jpg",
@@ -41,18 +41,15 @@
       "name": "quan",
       "price": 100,
       "image": "https://images2.thanhnien.vn/528068263637045248/2024/1/25/e093e9cfc9027d6a142358d24d2ee350-65a11ac2af785880-17061562929701875684912.jpg"
+    },
+    {
+      "id": "95b1",
+      "title": "san pham 1",
+      "name": "san pham 1",
+      "price": 100,
+      "image": "https://example.com/samsung-s24.jpg"
     }
   ],
   "users": [
-    {
-      "email": "thaivm2@fe.edu.vn",
-      "password": "$2a$10$nRopbCmzAlIiuuv5kubBYeG23Zsl322odODYLM/xpnH8bzJZ4sL.S",
-      "id": "1"
-    },
-    {
-      "email": "thaivm3@fe.edu.vn",
-      "password": "$2a$10$I3mpMC2SJAXEQNm71FpaSO01Y6kI4Mlt4QRo7ujHUu/GFTkxqcSxK",
-      "id": "2"
-    }
   ]
 }
